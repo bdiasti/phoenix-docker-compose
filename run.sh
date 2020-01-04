@@ -20,7 +20,9 @@ fi
 # Install JS libraries
 echo "\nInstalling JS..."
 cd assets && npm install
-cd ..
+#When execute cd.. you cannot execute mix ecto.create because you left home app directory. 
+# web_1  | ** (Mix) The task "ecto.create" could not be found
+#cd ..
 
 # Wait for Postgres to become available.
 until psql -h db -U "postgres" -c '\q' 2>/dev/null; do
